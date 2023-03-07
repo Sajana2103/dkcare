@@ -450,9 +450,9 @@ let mobileHeroContent
       console.log('size',size)
       container.current.appendChild(renderer.domElement)
       document.addEventListener("wheel", handleWheel);
-      //       document.addEventListener("touchstart", handleTouchStart);
-      // document.addEventListener("touchmove", handleTouchMove);
-      // document.addEventListener("touchend", handleTouchEnd);
+            document.addEventListener("touchstart", handleTouchStart);
+      document.addEventListener("touchmove", handleTouchMove);
+      document.addEventListener("touchend", handleTouchEnd);
       if(contentRef.current && size800) {
         desktopPages = document.querySelectorAll('.desktop-page')
       }
@@ -993,7 +993,10 @@ let mobileHeroContent
     touch.dy = t.pageY - touch.startY;
     if (touch.dy > 10) direction = "up";
     if (touch.dy < -10) direction = "down";
-    handleDirection();
+    if (size800) {
+      handleDirectionDesktop();
+
+    } else handleDirectionMobile();
   }
 
 
