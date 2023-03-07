@@ -983,7 +983,7 @@ let mobileHeroContent
 
   function handleTouchMove(e) {
     if (!listening) return;
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   function handleTouchEnd(e) {
