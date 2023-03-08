@@ -3,8 +3,8 @@ import Button from "./Button";
 
 const Technologies = () => {
   return (
-    <div id="technologies" >
-      <a id="technologies-anchor"></a>
+    <div className="main-section" id="technologies" >
+          <a id="technologies-anchor"></a>
 
       <div className="technologies-wrapper con-pd" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
         <div>
@@ -17,6 +17,7 @@ const Technologies = () => {
               beyond to ensure that every ride is comfortable, safe, and stress-free.
             </h2>
           </div>
+          
           <div className="desktop-technologies">
 
             <div>
@@ -98,6 +99,7 @@ const Technologies = () => {
             </div>
 
           </div>
+
           <div className="mobile-technologies">
             <div>
               <div className="tech-img-mobile">
@@ -174,8 +176,8 @@ const Technologies = () => {
         <br />
         <div className="tech-flex  ">
           <div className="wPer2 text-align-center" >
-            <article className="" style={{}} >
-              <h2 className=" blue" style={{ padding: '2rem' }} >
+            <article className="" id="tech-our-founders"  >
+              <h2 className=" blue"  >
                 Our founders have
                 extensive experience in the non-emergency medical transportation (NEMT)
                 industry.
@@ -187,12 +189,12 @@ const Technologies = () => {
           <div className=" bd-right" ></div>
           <div className="wPer2 text-align-center  " >
             <div >
-              <article className=""  >
+              <article className="" id="tech-we-pride"  >
 
-                <div style={{ padding: '2rem', }}>
+                <div >
                   <h3 className=" blue " >We pride ourselves on our ability to go above and beyond to ensure that
                     every ride is comfortable, safe, and stress-free.</h3>
-
+                  <br />
                   <div style={{ float: 'left' }}>
                     <Button name="Technologies" />
                   </div>

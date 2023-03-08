@@ -12,8 +12,8 @@ const EvolutionCom = () => {
     setYear(year)
   }
   return (
-    <div id="evolution">
-      <a id="evolution-anchor"></a>
+    <div className="main-section" id="evolution">
+          <a id="evolution-anchor"></a>
 
       <div className="evolution-wrapper blue-gr con-pd" style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
         <h1 className="title white " id="evo-title" >The evolution of our company</h1>
@@ -52,6 +52,7 @@ const EvolutionCom = () => {
  */}
 
             </div>
+            
             <p className="text-med white evo-tagline">DK Care LLC formed in September 2019 with a
               couple of fleet and drivers with the mission of providing exceptional NEMT services.</p>
           </div>

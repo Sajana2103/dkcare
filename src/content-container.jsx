@@ -51,13 +51,13 @@ const openModal = (page) => {
       <div id="home-content" >
       {
         size.width > 800 ? 
-        <div id="back-hero" onClick={backToHeroDesktop}>
+        <div className="main-section" id="back-hero" onClick={backToHeroDesktop}>
           <h2 className='cen' >
             Click to get back or scroll down for more.
           </h2>
         </div>
         : 
-        <div id="back-hero" onClick={backToHero}>
+        <div className="main-section"  id="back-hero" onClick={backToHero}>
           <h2 className='cen' >
           Click to get back or scroll down for more.
           </h2>

@@ -1,56 +1,57 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Draggable from "gsap/Draggable";
+import { useThrottledCallback } from 'use-debounce';
+
 
 const Stories = () => {
   const reviewRef = useRef()
   const reviewCards = gsap.utils.toArray('.review-box-wrapper')
   console.log(reviewCards)
+  let oldx = 0
+  let direction = ''
   let cardWidth
   useEffect(() => {
-    if(reviewRef.current){
-      cardWidth = document.querySelector('.review-box-wrapper').offsetWidth+30
+    if (reviewRef.current) {
+      cardWidth = document.querySelector('.review-box-wrapper').offsetWidth + 30
 
     }
-  },[reviewRef.current])
-  let xPerCard = 100 /reviewCards.length-1
-  let xProgress= 0
-  const slideBtns = gsap.timeline({defaults:{duration:1,ease:'Power2.in',stagger:0.1}})
+  }, [reviewRef.current])
+  let xPerCard = 100 / reviewCards.length - 1
+  let xProgress = 0
+  const slideBtns = gsap.timeline({ defaults: { duration: 0.3, ease: 'Power2.in', } })
   const leftBtn = () => {
-    if(xProgress > (-cardWidth * reviewCards.length-1)){
+    if (xProgress > (-cardWidth * reviewCards.length - 1)) {
 
-      xProgress-=cardWidth
-      console.log('left',xProgress)
-      slideBtns.to(reviewCards,{translateX:xProgress})
+      xProgress -= cardWidth
+      console.log('left', xProgress)
+      slideBtns.to(reviewCards, { translateX: xProgress })
     }
 
   }
   const rightBtn = () => {
-    if(xProgress < 0){
-      xProgress+=cardWidth
-      console.log('right',xProgress)
-      slideBtns.to(reviewCards,{translateX:xProgress})
+    if (xProgress < 0) {
+      xProgress += cardWidth
+      console.log('right', xProgress)
+      slideBtns.to(reviewCards, { translateX: xProgress })
     }
-    
-
   }
   return (
-    <div id="customers">
-      <a id="customers-anchor"></a>
+    <div className="main-section" id="customers">
+        <a id="customers-anchor"></a>
 
       <div className="customers-wrapper con-pd" >
         <div>
           <h1 className="title blue bold tc" id="customer-title">Customer Stories</h1>
-          <hr />
           <br />
         </div>
-        <div ref={reviewRef} id="review-wrapper">
-          <div className="arrow-btn-wrapper">
-            <div className="black arrow-btn "  onClick={leftBtn}><img style={{transform:'rotate(180deg)'}} src="/right-arrow.svg"/></div>
-            <div className="black arrow-btn " onClick={rightBtn}><img  src="/right-arrow.svg"/></div>
-          </div>
 
-          <div className="flex-container " style={{gap:'30px'}} id="review-con" >
+        <div ref={reviewRef} id="review-wrapper" >
+          <div className="arrow-btn-wrapper">
+            <div className="black arrow-btn " onClick={rightBtn}><img style={{ transform: 'rotate(180deg)' }} src="/right-arrow.svg" /></div>
+            <div className="black arrow-btn " onClick={leftBtn}><img src="/right-arrow.svg" /></div>
+          </div>
+          
+          <div className="flex-container " style={{ gap: '30px' }} id="review-con" >
             <div className="review-box-wrapper">
 
               <div className="review-box">
@@ -153,7 +154,7 @@ const Stories = () => {
             </div>
           </div>
         </div>
-         
+
       </div>
     </div>
   )

@@ -5,7 +5,8 @@ import {  useEffect, useRef, useState, } from "react";
 import Modal from './modal.jsx';
 import Contact from "./pages/contact.jsx";
 import App from "./App";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 const manager = new THREE.LoadingManager()
 const camAndCar = new THREE.Group()
@@ -66,7 +67,7 @@ objects.forEach((object, idx) => {
 
 const Loading = () => {
 
-
+  gsap.registerPlugin(ScrollTrigger)
   const loadingRef = useRef()
   const progressRef = useRef()
   const [isLoaded, setIsLoaded] = useState(false)
@@ -84,11 +85,22 @@ const Loading = () => {
       }
       manager.onLoad = function () {
         // console.log( 'Loading complete!');
-        document.querySelector('#loading-text').innerHTML = "Welcome"
-        progressBar.style.display = 'none'
+        // document.querySelector('#loading-text').innerHTML = "Welcome"
+
+        
+        // .to(progressBar,{display:'none'})
+
+        // progressBar.style.display = 'none'
 
         setTimeout(() => {
-          loadingRef.current.style.display = 'none'
+          // loadingRef.current.style.display = 'none'
+          gsap.timeline()
+          .to(progressBar,{opacity:0,duration:1})
+        .to(loadingRef.current,{opacity:0,duration:1},'<+=50%')
+        .to(progressBar,{display:'none'})
+        .to(loadingRef.current,{display:'none'})
+
+        // .to(loadingRef.current,{display:'none'})
 
         }, 1500)
 
@@ -119,14 +131,15 @@ const Loading = () => {
     <>
  
       <div id="loading-container" ref={loadingRef}>
-        <h2 id="loading-text" >Loading..</h2>
+        <img style={{padding:'2rem'}} src="/logo.png"/>
+        {/* <h2 id="loading-text" >Loading..</h2> */}
         <progress value="0" max="100" id="progress-bar" ref={progressRef}>LOADING</progress>
       </div>
       {
         isLoaded && models.length ?
           <App isLoaded={isLoaded} objects={objects}
             models={models}  animation={animation} />
-          : <div style={{backgroundColor:"red"}}><h1>NOTHING</h1>NOTHING</div>
+          : <></>
       }
     </>
   )

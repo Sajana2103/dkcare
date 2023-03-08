@@ -4,7 +4,7 @@ import Button from "./Button";
 const Footer = ({setPageName,openModal}) => {
   return (
     <footer id="#footer"
-      className="blue-gr con-pd" style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
+      className="main-section blue-gr con-pd" style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
       <a id="footer-anchor"></a>
 
       <div className="flex-container wrap">

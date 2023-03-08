@@ -3,12 +3,16 @@ import Button from "./Button";
 
 const Expertise = ({setPageName,openModal}) => {
   return (
-    <div id="expertise" style={{ paddingBottom: '10rem', paddingTop: '10rem' }}>
-      <a id="expertise-anchor"></a>
-
+    <div className="main-section" id="expertise" style={{ paddingBottom: '10rem', paddingTop: '10rem' }}>
+<a id="expertise-anchor"></a>
       <div className="expertise-wrapper grey-gr con-pd " >
-        <h2 id="expertise-title" className="title blue">Our Expertise</h2>
+
+
+        <h2 id="expertise-title" className="title blue">Our Expertise
+</h2>
+
         <div className="flex-container wrap exp-text">
+
           <div className="wPer2 " >
             <article className="wPer3 ">
               <p className="text-med blue bold" >Working with multiple transportation providers can be frustrating, which is why we strive to provide a seamless and high-quality experience from start to finish.
@@ -17,6 +21,7 @@ const Expertise = ({setPageName,openModal}) => {
                 exceptional service to our customers.</p>
               <br />
             </article>
+
             <article className="orange-bg curve-bd-top wPer3"
             >
               <div style={{ padding: '1ch 1ch 0.5ch 1rem' }}>
@@ -56,7 +61,7 @@ const Expertise = ({setPageName,openModal}) => {
 
           <div className="wPer1 blue exp-text-boxes"  >
           
-            <div className="title-bd-container">
+            <div className="title-bd-container hero-titles">
               <h2 className="blue">Reliable, Safe & Convenient</h2>
               <div className="title-bd-blue"></div>
             </div>
@@ -69,7 +74,7 @@ const Expertise = ({setPageName,openModal}) => {
           <br />
           <div className="wPer1 blue exp-text-boxes">
             
-            <div className="title-bd-container">
+            <div className="title-bd-container hero-titles">
               <h2 className="blue">Independence & Autonomy</h2>
               <div className="title-bd-blue"></div>
             </div>
@@ -83,7 +88,7 @@ const Expertise = ({setPageName,openModal}) => {
           </div>
           <br />
           <div className="wPer1 blue exp-text-boxes">
-            <div className="title-bd-container">
+            <div className="title-bd-container hero-titles">
               <h2 className="blue">Reliable, Safe & Convenient</h2>
               <div className="title-bd-blue"></div>
             </div>
@@ -98,7 +103,7 @@ const Expertise = ({setPageName,openModal}) => {
           <br />
           <div className="wPer1 blue exp-text-boxes">
          
-            <div className="title-bd-container">
+            <div className="title-bd-container hero-titles">
               <h2 className="blue">DK Care</h2>
               <div className="title-bd-blue"></div>
             </div>

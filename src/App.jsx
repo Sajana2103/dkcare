@@ -680,7 +680,7 @@ let mobileHeroContent
         let xPerReview = 100 * reviewBox.length
         customerTL.set(reviewBox, { translateX: size.width / 2 })
           .fromTo('#customer-title', { opacity: 0, yPercent: -25 }, { opacity: 1, yPercent: 0 })
-          .fromTo(reviewBox, {display:'block', xPercent: -(xPerReview) },)
+          // .fromTo(reviewBox, {display:'block', xPercent: -(xPerReview) },)
 
 
         // for(let i = 0 ;  i < reviewBox.length-1; i++){
@@ -736,17 +736,17 @@ let mobileHeroContent
 
     setTimeout(() => {
       if (size.width < 800 && funcRan === 0) {
-        funcRan++
         console.log('mobile homepage ran : ', funcRan)
         gsapTimelines('mobile', 'homepage')
-
+        
         //end of set time out
       } 
-    }, sceneTl.duration() * 1000)
+    },!funcRan?  sceneTl.duration() * 1000 : 0)
     setTimeout(() => {
       sceneTl.to('body', { overflow: 'scroll', overflowY: 'scroll' },)
-
-    }, sceneTl.duration() * 1500)
+      
+    },!funcRan? sceneTl.duration() * 1500 : 0)
+    funcRan++
   }
   const skipHeroDesktop = () => {
 
@@ -765,7 +765,7 @@ let mobileHeroContent
       .to('#App', { position: 'relative' }, '<')
       .to('#homepage', { display: 'block', }, '<')
       .fromTo('#homepage', { opacity: 0 }, { opacity: 1, duration: 1 })
-      .to('#anchors',{display:'flex',opacity:1,duration:1})
+      .to('#anchors',{display:'flex',opacity:1,duration:2})
     console.log('duration', sceneTl.duration())
     // .to('.sections', { translateY: sectionHeights[sectionHeights.length-1] },'<')
     console.log('sceneTl End of SCENE', listening)
@@ -784,7 +784,7 @@ let mobileHeroContent
       console.log('setTimeout body',funcRan)
       sceneTl.to('body', { overflow: 'scroll', overflowY: 'scroll' },)
 
-    }, sceneTl.duration() * 1000)
+    }, sceneTl.duration() * 1000 )
   }
   // Slides a section in on scroll down
  

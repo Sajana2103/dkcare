@@ -22,6 +22,8 @@ const HomePage = ({ size,setPageName,openModal }) => {
   let scrollItems = [{ name: 'top', position: 0 }]
   let bodyHeight = document.body.scrollHeight
   let homepageH = 0
+  let mainSections = []
+  let mainSectionsPositions = []
 
   const checkPosition = () => {
     if (homepageH !== 0 && !homeLoaded) {
@@ -55,13 +57,34 @@ const HomePage = ({ size,setPageName,openModal }) => {
 
 
     }
+    // for(let i = 0; i< mainSectionsPositions.length-1; i++){
+    //   if(scrollY < mainSectionsPositions[i] && scrollY > mainSectionsPositions[i+1]){
+    //     atags[i].style.color = '#ed7036'
+    //     console.log(mainSectionsPositions[i])
+    //   } else { 
+    //     atags[i].style.color = '#1e4d8c'
+    //     console.log(mainSectionsPositions[i],scrollY)
+
+    //   }
+    // }
   }
   const posHandler = useThrottledCallback(checkPosition, 1000)
   useEffect(() => {
     if (homeRef.current) {
+      // mainSections = document.querySelectorAll('.main-section')
+      // console.log('main sections',mainSections)
+      // for(let i = 0; i < mainSections.length-1;i++){
+      //   if(i>0){
+      //     mainSectionsPositions[i] = mainSections[i].offsetHeight + mainSectionsPositions[i-1]
+      //   } else {
+      //     mainSectionsPositions[i] = mainSections[i].offsetHeight
+      //   }
+      // }
+      // console.log(mainSectionsPositions)
       homepageH = document.querySelector('#homepage')
       let expertiseA = document.querySelector('#expertise-anchor')
       atags = document.querySelectorAll('.a-tags')
+      console.log(atags)
       for (let a = 0; a < atags.length; a++) {
         let hash = atags[a].hash
         scrollNames.push(hash)
@@ -86,6 +109,7 @@ const HomePage = ({ size,setPageName,openModal }) => {
        size.width > 400 ?
       <div id="anchors">
         <div className="flex wrap  bold blue" style={{ gap: '0.2rem' }} >
+
           <a className="a-tags" href="#expertise-anchor" >Expertise</a>
           <a className="a-tags" href="#services-anchor">Services</a>
           <a className="a-tags" href="#technologies-anchor" >Technologies</a>
@@ -99,7 +123,6 @@ const HomePage = ({ size,setPageName,openModal }) => {
       <Expertise setPageName={setPageName} openModal={openModal} />
       <Services />
       <Technologies />
-      {/* <Evolution size={size} home={homeRef} /> */}
       <EvolutionCom size={size} home={homeRef} />
       <Stories />
       <Covid />
